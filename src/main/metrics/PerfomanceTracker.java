@@ -18,7 +18,8 @@ public class PerfomanceTracker {
     public long getComparisons(){
         return comparisons;
     }
-    public long getSwap(){
+
+    public long getSwaps() {
         return swap;
     }
 }
