@@ -31,6 +31,7 @@ public class BenchmarkRunnerInsertionSort {
             }
         }
     }
+
     private static int[] generateRandomArray(int n) {
         Random rand = new Random();
         int[] arr = new int[n];
