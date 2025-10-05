@@ -5,7 +5,7 @@ import main.metrics.PerfomanceTracker;
 public class SelectionSort {
     private PerfomanceTracker tracker;
 
-    public SelectionSort(PerfomanceTracker tracker) {
+    public SelectionSort() {
         this.tracker = new PerfomanceTracker();
     }
 
@@ -16,22 +16,15 @@ public class SelectionSort {
         }
 
         int n = array.length;
-        boolean sorted;
 
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
-            sorted = true;
 
             for (int j = i + 1; j < n; j++) {
                 tracker.incComparisons();
                 if (array[minIndex] > array[j]) {
                     minIndex = j;
-                    sorted = false;
                 }
-            }
-
-            if (sorted) {
-                break;
             }
 
             if (minIndex != i) {
