@@ -11,7 +11,9 @@ public class SelectionSort {
 
     public void sort(int[] array) {
         tracker.reset();
+        tracker.startTimer();
         if (array == null || array.length <= 1) {
+            tracker.endTimer();
             return;
         }
 
@@ -22,7 +24,8 @@ public class SelectionSort {
 
             for (int j = i + 1; j < n; j++) {
                 tracker.incComparisons();
-                if (array[minIndex] > array[j]) {
+                tracker.incArrayAccesses(2);
+                if (array[j] < array[minIndex]) {
                     minIndex = j;
                 }
             }
@@ -31,10 +34,12 @@ public class SelectionSort {
                 swap(array, i, minIndex);
             }
         }
+        tracker.endTimer();
     }
 
     private void swap(int[] array, int i, int j) {
         tracker.incSwap();
+        tracker.incArrayAccesses(4);
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
